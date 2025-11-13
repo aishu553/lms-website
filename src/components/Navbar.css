@@ -1,0 +1,479 @@
+/* 🌐 Navbar.css */
+
+.navbar {
+  display: flex;
+  justify-content: space-between; /* keep logo + left vs right links separated */
+  align-items: center;
+  background: white ;
+  padding: 15px 60px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  font-family: "Poppins", sans-serif;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* spacing between logo, explore, and search bar */
+}
+
+.nav-links-left {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* spacing between Explore and search bar */
+}
+
+.nav-links-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+
+.logo a {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color:white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.logo a:hover {
+  color: #F5F5DC;
+}
+
+/* Nav links */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Dropdown - two-column behaviour (left = main categories, right = subcategory panel) */
+.dropdown {
+    position: relative;
+}
+.dropbtn {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  color: #333;
+  font-weight: 500;
+  padding: 8px 12px; /* adjust as needed */
+  width: auto;       /* prevent stretching */
+  display: inline-block; /* make it inline */
+}
+* {
+  cursor: url('/public/nat996.cur'), auto;
+}
+
+.navbar .dropdown {
+  display: inline-block; /* keep it inline with other links */
+}
+.dropbtn {
+  background-color: #036F3E;  /* button background color */
+  color: #fff;               /* text color */
+  font-size: 1rem;           /* text size */
+  font-weight: 500;          /* text weight */
+  padding: 8px 16px;         /* inside spacing */
+  border: none;              /* remove default border */
+  border-radius: 8px;        /* rounded corners */
+  cursor: pointer;           /* pointer cursor on hover */
+  transition: all 0.3s ease; /* smooth hover effect */
+  width: auto;               /* prevent button from stretching */
+  display: inline-block;     /* inline with other elements */
+}
+.dropbtn:hover {
+  background-color: #1d5f41; /* darker shade */
+  color: #fff;               /* text color on hover */
+  transform: scale(1);    /* slightly grow */
+}
+.dropbtn {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* subtle shadow */
+}
+
+.dropbtn:hover {
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* stronger shadow on hover */
+  
+}
+
+
+/* Outer dropdown panel setup (won't conflict with the later .dropdown-content rule) */
+.dropdown-content {
+    display: block; /* shown on :hover by existing rule */
+    position: absolute;
+    left: 0;
+    top: calc(100% + 8px);
+    background: #fff;
+    min-width: 420px;
+    padding: 12px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    z-index: 50;
+
+    /* Two-column layout */
+    display: grid;
+    grid-template-columns: 220px 1fr; /* left = main categories, right = subcategory area */
+    gap: 12px;
+    align-items: start;
+    
+}
+
+
+/* Left column (vertical list of main categories) */
+.dropdown-content .left-column {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-right: 1px solid #eef2f6;
+}
+.dropdown-content .left-column li {
+    padding: 10px 12px;
+    cursor: pointer;
+    border-radius: 6px;
+    font-weight: 500;
+    color: #333;
+    transition: background 0.18s, color 0.18s;
+}
+.dropdown-content .left-column li:hover {
+    background: #f5f8ff;
+    color: #007bff;
+}
+
+/* Right column (panels of subcategories). Panels are hidden by default. */
+.dropdown-content .right-column {
+    min-height: 120px;
+}
+.dropdown-content .right-column .sub-list {
+    display: none;
+    padding: 4px 6px;
+}
+.dropdown-content .right-column .sub-list a {
+    display: block;
+    padding: 8px 10px;
+    color: #333;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background .18s;
+}
+.dropdown-content .right-column .sub-list a:hover {
+    background: #f2f2f2;
+}
+
+/* Show corresponding sub-list when its left-category is hovered.
+     This requires that the left-column items and right-column .sub-list elements
+     are in the same order (nth-child correspondence). We provide mappings for the
+     first 8 items; extend nth-child rules if you have more categories. */
+.dropdown-content:has(.left-column li:nth-child(1):hover)  .right-column .sub-list:nth-child(1),
+.dropdown-content:has(.left-column li:nth-child(2):hover)  .right-column .sub-list:nth-child(2),
+.dropdown-content:has(.left-column li:nth-child(3):hover)  .right-column .sub-list:nth-child(3),
+.dropdown-content:has(.left-column li:nth-child(4):hover)  .right-column .sub-list:nth-child(4),
+.dropdown-content:has(.left-column li:nth-child(5):hover)  .right-column .sub-list:nth-child(5),
+.dropdown-content:has(.left-column li:nth-child(6):hover)  .right-column .sub-list:nth-child(6),
+.dropdown-content:has(.left-column li:nth-child(7):hover)  .right-column .sub-list:nth-child(7),
+.dropdown-content:has(.left-column li:nth-child(8):hover)  .right-column .sub-list:nth-child(8)
+{
+    display: block;
+}
+.sub-item {
+  color: #333;
+  text-decoration: none;
+  display: block;
+  padding: 6px 0;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.sub-item:hover {
+  color: #036f3e;
+}
+.main-item {
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-bottom: 2px; /* adds space between each main category */
+}
+.left-column {
+  border-right: 2px solid rgba(0, 0, 0, 0.15); /* darker line */
+  padding-right: 15px;
+}
+
+
+/* Fallback: if nothing is hovered, show the first panel */
+.dropdown-content .right-column .sub-list:first-child {
+    display: block;
+}
+/* Dropdown main container */
+.dropdown-content {
+  display: flex;
+  background: #ffffff;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 999;
+  padding: 0;
+}
+
+/* Left, middle, and right columns */
+.left-column,
+.middle-column,
+.rightmost-column {
+  padding: 12px 16px;
+  min-width: 200px;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+/* Remove border for last column */
+.rightmost-column {
+  border-right: none;
+}
+
+/* Sub-item and hover styling */
+.sub-item {
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  color: #024c2c;
+}
+
+.sub-item:hover {
+  background-color: #e6f6ec;
+  color: #036f3e;
+}
+
+/* Highlight active category */
+.main-item.active {
+  background-color: #f2f9f5;
+  color: #036f3e;
+  font-weight: 600;
+}
+
+/* Python submenu trigger */
+.has-submenu {
+  position: relative;
+  font-weight: 500;
+  color: #024c2c;
+}
+
+.has-submenu:hover {
+  background-color: #dff5e6;
+  color: #036f3e;
+}
+/* New layout for 3-column structure */
+.dropdown-content.three-column {
+  display: flex;
+  background: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  padding: 1rem;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 10;
+}
+
+.left-column,
+.middle-column {
+  padding: 0 1rem;
+}
+
+.middle-column {
+  position: relative;
+}
+
+.sub-item.has-submenu {
+  position: relative;
+}
+
+.python-submenu {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background: #fff;
+  border-left: 1px solid #ccc;
+  padding: 0.5rem 1rem;
+  white-space: nowrap;
+  min-width: 150px;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Keep submenu visible on hover */
+.sub-item.has-submenu:hover .python-submenu {
+  display: block;
+}
+
+/* Minor polish */
+.sub-item {
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.sub-item:hover {
+  background: #f5f5f5;
+  border-radius: 6px;
+}
+  
+/* Responsive: stack into one column on small screens */
+@media (max-width: 768px) {
+    .dropdown-content {
+        position: static;
+        width: 100%;
+        grid-template-columns: 1fr;
+    }
+    .dropdown-content .left-column {
+        border-right: none;
+        display: flex;
+        gap: 8px;
+        overflow-x: auto;
+        padding-bottom: 8px;
+    }
+    .dropdown-content .left-column li {
+        white-space: nowrap;
+    }
+    .dropdown-content .right-column .sub-list {
+        display: block !important; /* show all sub-lists stacked on mobile */
+        border-top: 1px solid #f0f0f0;
+        padding-top: 10px;
+    }
+}
+
+/* Search Bar */
+.search-bar {
+  padding: 8px 100px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  outline: none;
+  width: 200px;
+  transition: 0.3s;
+}
+
+.search-bar:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+/* Buttons */
+.btn {
+  background: linear-gradient(135deg, #036f3e, #14b66f);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 8px 20px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(3, 111, 62, 0.3);
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(3, 111, 62, 0.5);
+}
+
+.btn {
+  text-decoration: none;
+  padding: 8px 18px;
+  border-radius: 25px;
+  font-weight: 500;
+  color: white;
+  background-color: #105f04;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #158504;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px 30px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 10px;
+  }
+
+  .search-bar {
+    width: 100%;
+  }
+}
+
+  .search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+
+
+.search-container {
+  position: relative;
+}
+
+.search-bar {
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  width: 400px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.search-bar:focus {
+  border-color: #0a7c4d;
+  width: 450px;
+  box-shadow: 0 0 6px rgba(10, 124, 77, 0.3);
+}
+
+.search-suggestions {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  padding: 12px;
+  z-index: 20;
+}
+
+.suggestion-heading {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.suggestion-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.suggestion-tag {
+  background: #f1f3f4;
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.suggestion-tag:hover {
+  background: #e6f4ea;
+  color: #0a7c4d;
+}
