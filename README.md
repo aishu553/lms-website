@@ -1,8 +1,4 @@
-Absolutely! Here's a **fully enhanced, portfolio-ready README** with badges, emojis, and a GIF placeholder. You can copy it directly into your `README.md`.
 
----
-
-````markdown
 # TechKnots LMS 🌱
 
 ![TechKnots Logo](public/logo.png)
