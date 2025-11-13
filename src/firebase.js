@@ -4,12 +4,12 @@ import { getAuth, GoogleAuthProvider, GithubAuthProvider, OAuthProvider, signInW
 
 // Your Firebase config
 const firebaseConfig = {
-  apiKey: "AIzaSyBvBiJQPYbNFAxmSj-qNFRSHYEvPVxRn6M",
-  authDomain: "techknots-lms-80b9f.firebaseapp.com",
-  projectId: "techknots-lms-80b9f",
-  storageBucket: "techknots-lms-80b9f.firebasestorage.app",
-  messagingSenderId: "71232085619",
-  appId: "1:71232085619:web:0e6eb5ff65c23dd0af5406"
+  apiKey: "hhggiu",
+  authDomain: "bhhhghg",
+  projectId: "bhhvhv"
+  storageBucket: "gbvhgyyg",
+  messagingSenderId: "hhbhb",
+  appId: "nbhjbhbh"
 };
 
 // Initialize Firebase
